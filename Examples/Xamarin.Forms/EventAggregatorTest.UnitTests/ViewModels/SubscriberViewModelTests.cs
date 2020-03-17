@@ -43,30 +43,4 @@ namespace EventAggregatorTest.UnitTests.ViewModels
             Assert.Equal(4, _viewModel.Number);
         }
     }
-
-    #region SPOILERS
-
-    #region Step 1
-    //private Action<MessageContent> _onMessageSubmitted;
-    //_mockedEvent
-    //            .Setup(evt => evt.Subscribe(It.IsAny<Action<MessageContent>>()))
-    //            .Callback<Action<MessageContent>>(action => _onMessageSubmitted = action);
-    #endregion
-
-    #region Step 2
-    //_mockedEvent
-    //                    .Setup(evt =>
-    //                        evt.Subscribe(
-    //                            It.IsAny<Action<MessageContent>>(),
-    //                            It.IsAny<ThreadOption>(),
-    //                            It.IsAny<bool>(),
-    //                            It.IsAny<Predicate<MessageContent>>()))
-    //                    .Callback<Action<MessageContent>, ThreadOption, bool, Predicate<MessageContent>>((action, _, __, ___) => _onMessageSubmitted = action);
-    #endregion
-
-    #region Step 3
-    //_eventAggregator.RegisterNewMockedEvent<MessageSubmittedEvent, MessageContent>(action => _onMessageSubmitted = action);
-    #endregion
-
-    #endregion
 }

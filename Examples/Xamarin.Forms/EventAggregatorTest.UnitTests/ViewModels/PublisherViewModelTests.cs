@@ -38,30 +38,4 @@ namespace EventAggregatorTest.UnitTests.ViewModels
             _mockedEvent.Verify(x => x.Publish(It.Is<MessageContent>(m => m.Text == "This is the text" && m.Number == 4)));
         }
     }
-
-    #region SPOILERS
-
-    #region Step 1
-    //_eventAggregator.Setup(e => e.GetEvent<MessageSubmittedEvent>()).Returns(new MessageSubmittedEvent());
-    #endregion
-
-    #region Step 2
-    //private readonly Mock<MessageSubmittedEvent> _mockedEvent;
-    //_mockedEvent = new Mock<MessageSubmittedEvent>();
-    //        _eventAggregator
-    //            .Setup(e => e.GetEvent<MessageSubmittedEvent>())
-    //            .Returns(_mockedEvent.Object);
-    //_mockedEvent
-    //.Verify(x => x.Publish(It.Is<MessageContent>(m => m.Text == "This is the text" && m.Number == 4)));
-    #endregion
-
-    #region Step 3
-    //_mockedEvent = _eventAggregator.RegisterNewMockedEvent();
-    #endregion
-
-    #region Step 4
-    //_mockedEvent = _eventAggregator.RegisterNewMockedEvent<MessageSubmittedEvent, MessageContent>();
-    #endregion
-
-    #endregion
 }
