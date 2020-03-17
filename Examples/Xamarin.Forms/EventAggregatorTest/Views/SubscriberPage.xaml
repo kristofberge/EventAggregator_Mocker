@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:mvvm="clr-namespace:Prism.Mvvm;assembly=Prism.Forms"
+    mvvm:ViewModelLocator.AutowireViewModel="True"
+    x:Class="EventAggregatorTest.Views.SubscriberPage">
+    <Grid Padding="20">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="40"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="3*"/>
+        </Grid.ColumnDefinitions>
+
+        <Label
+            Text="Message:"
+            FontAttributes="Bold"
+            Grid.Row="0" Grid.Column="0"/>
+        <Label
+            Text="{Binding Message}"
+            Grid.Row="0" Grid.Column="1"/>
+        <Label
+            Text="Number:"
+            FontAttributes="Bold"
+            Grid.Row="1" Grid.Column="0"/>
+        <Label
+            Text="{Binding Number}"
+            Grid.Row="1" Grid.Column="1"/>
+    </Grid>
+</ContentPage>

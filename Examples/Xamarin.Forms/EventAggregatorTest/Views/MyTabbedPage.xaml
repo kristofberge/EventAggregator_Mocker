@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TabbedPage
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:views="clr-namespace:EventAggregatorTest.Views;assembly=EventAggregatorTest"
+    xmlns:mvvm="clr-namespace:Prism.Mvvm;assembly=Prism.Forms"
+    mvvm:ViewModelLocator.AutowireViewModel="True"
+    x:Class="EventAggregatorTest.Views.MyTabbedPage">
+    <TabbedPage.Children>
+        <views:PublisherPage Title="Publisher" />
+        <views:SubscriberPage Title="Subscriber" />
+    </TabbedPage.Children>
+</TabbedPage>
