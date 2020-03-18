@@ -21,7 +21,6 @@ jobs:
         dotnet-version: 3.1.101
     - name: Build package project
       run: |
-        cd EventAggregator_Mocker
         nuget restore
         msbuild EventAggregatorMocker/EventAggregatorMocker.csproj /verbosity:normal /t:Rebuild /p:Configuration=Release
 
