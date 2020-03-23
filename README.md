@@ -28,8 +28,8 @@ Mock<MyParamEvent> mockedParamEvent = eventAggregatorMock.RegisterNewMockedEvent
 mockedParamEvent.Verify(evt => evt.Publish(It.IsAny<MyParam>), Times.Once);
 ```
 
-### Testing code that handles the event
-We need to get a reference to the code that will handle the event. We do this by storing this reference in a variable of type `Action` or `Action<T>`.
+### Verifying the event handling behavior
+We need to get a reference to the piece of code that will handle the event, so we can call it directly and verify its behavior. We do this by storing this reference in a variable of type `Action` or `Action<T>`.
 The 2 extension methods have an optional parameter of type `Action<Action>` or `Action<Action<T>>`. The Actions that these Actions receive is the parameter that is passed into the `.Subscribe(Action action)` method of the event.
 So at this point we can store this reference in a variable and invoke it in our unit test. This works even if the method passed is private.
 If this sounds a bit complicated, here's an example:
