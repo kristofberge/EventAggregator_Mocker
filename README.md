@@ -1,6 +1,8 @@
 # EventAggregator_Mocker
 EventAggregator_Mocker helper library for writing unit tests with Prism's EventAggregator and Moq.
 
+[NuGet package](https://www.nuget.org/packages/EventAggregator_Mocker/)
+
 It houses 2 extension methods for `Mock<IEventAggregator>`
  - `Mock<TEvent> RegisterNewMockedEvent<TEvent>(Action action = null)` for mocking an event <b>without</b> parameter.
  - `Mock<TEvent> RegisterNewMockedEvent<TEvent, TParam>(Action<TParam> action = null)` for mocking an event <b>with</b> parameter
