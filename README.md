@@ -1,5 +1,5 @@
 # EventAggregator_Mocker
-EventAggregator_Mocker helper library for writing unit tests with Prism's EventAggregator and Moq.
+EventAggregator_Mocker is a helper library for writing unit tests with Prism's EventAggregator and Moq. It allows you to verify that an event has been published with the correct parameters and that it was handled in the correct way.
 
 [NuGet package](https://www.nuget.org/packages/EventAggregator_Mocker/)
 
