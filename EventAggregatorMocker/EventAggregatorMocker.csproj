@@ -3,11 +3,11 @@
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
     <PackOnBuild>true</PackOnBuild>
-    <PackageVersion>0.3</PackageVersion>
+    <PackageVersion>0.4</PackageVersion>
     <Authors>Kristof Bergé</Authors>
     <Description>Easy extension methods for mocking Prism.EventAggregator</Description>
     <PackageId>EventAggregator_Mocker</PackageId>
-    <ReleaseVersion>0.3</ReleaseVersion>
+    <ReleaseVersion>0.4</ReleaseVersion>
     <SynchReleaseVersion>false</SynchReleaseVersion>
   </PropertyGroup>
 
