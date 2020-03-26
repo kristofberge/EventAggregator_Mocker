@@ -13,7 +13,6 @@ namespace EventAggregatorTest.UnitTests.ViewModels
         private SubscriberViewModel _viewModel;
 
         private readonly Mock<IEventAggregator> _eventAggregator;
-        private readonly Mock<MessageSubmittedEvent> _mockedEvent;
         private Action<MessageContent> _onMessageSubmitted;
 
         public SubscriberViewModelTests()
