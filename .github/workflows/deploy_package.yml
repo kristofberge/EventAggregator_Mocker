@@ -1,9 +1,9 @@
 name: Build master
 
 on:
-  pull_request:
-    branches:
-    - develop
+  push:
+    branches: 
+    - master
 
 jobs:
   build:
@@ -20,5 +20,8 @@ jobs:
       run: dotnet restore
     - name: Build
       run: dotnet build EventAggregatorMocker/EventAggregatorMocker.csproj --configuration Release --no-restore --verbosity normal
-    - name: Test
-      run: dotnet test EventAggregatorMocker.Tests/EventAggregatorMocker.Tests.csproj --no-restore --verbosity normal
+    - name: publish on version change
+      uses: rohith/publish-nuget@v2
+      with:
+        PROJECT_FILE_PATH: EventAggregatorMocker/EventAggregatorMocker.csproj
+        VERSION_REGEX: <ReleaseVersion>(.*)<\/ReleaseVersion>
