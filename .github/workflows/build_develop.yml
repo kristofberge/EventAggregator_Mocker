@@ -19,28 +19,7 @@ jobs:
       uses: actions/setup-dotnet@v1
       with:
         dotnet-version: 3.1.101
-    - name: Build package project
-      run: |
-        nuget restore
-        msbuild EventAggregatorMocker/EventAggregatorMocker.csproj /verbosity:normal /t:Rebuild /p:Configuration=Release
-
-  Android:
-    runs-on: macos-latest
-    steps:
-    - uses: actions/checkout@v1
-    - name: Build Android example
-      run: |
-        cd EventAggregator_Mocker/Examples/Xamarin.Forms/
-        nuget restore
-        cd EventAggregatorTest.Android
-        msbuild EventAggregatorTest.Android.csproj /verbosity:normal /t:Rebuild /p:Configuration=Debug
-        
-  iOS:
-    runs-on: macos-latest
-    steps:
-    - uses: actions/checkout@v1
-    - name: Build iOS example
-      run: |
-        cd EventAggregator_Mocker/Examples/Xamarin.Forms/
-        nuget restore
-        msbuild EventAggregatorTest.iOS/EventAggregatorTest.iOS.csproj /verbosity:normal /t:Rebuild /p:Platform=iPhoneSimulator /p:Configuration=Debug
+    - name: Install dependencies
+      run: dotnet restore
+    - name: Build
+      run: dotnet build EventAggregatorMocker/EventAggregatorMocker.csproj --configuration Release --no-restore --verbosity normal
