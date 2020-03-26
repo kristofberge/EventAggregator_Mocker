@@ -15,6 +15,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EventAggregatorTest.UnitTes
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EventAggregatorMocker", "EventAggregatorMocker\EventAggregatorMocker.csproj", "{33D4A9A0-7A37-45EE-8EFD-47175515788E}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EventAggregatorMocker.Tests", "EventAggregatorMocker.Tests\EventAggregatorMocker.Tests.csproj", "{9C41561E-BC85-4570-9A3F-C828F0A0E249}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -85,6 +87,18 @@ Global
 		{33D4A9A0-7A37-45EE-8EFD-47175515788E}.Debug|iPhone.Build.0 = Debug|Any CPU
 		{33D4A9A0-7A37-45EE-8EFD-47175515788E}.Release|iPhone.ActiveCfg = Release|Any CPU
 		{33D4A9A0-7A37-45EE-8EFD-47175515788E}.Release|iPhone.Build.0 = Release|Any CPU
+		{9C41561E-BC85-4570-9A3F-C828F0A0E249}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9C41561E-BC85-4570-9A3F-C828F0A0E249}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9C41561E-BC85-4570-9A3F-C828F0A0E249}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9C41561E-BC85-4570-9A3F-C828F0A0E249}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9C41561E-BC85-4570-9A3F-C828F0A0E249}.Debug|iPhoneSimulator.ActiveCfg = Debug|Any CPU
+		{9C41561E-BC85-4570-9A3F-C828F0A0E249}.Debug|iPhoneSimulator.Build.0 = Debug|Any CPU
+		{9C41561E-BC85-4570-9A3F-C828F0A0E249}.Release|iPhoneSimulator.ActiveCfg = Release|Any CPU
+		{9C41561E-BC85-4570-9A3F-C828F0A0E249}.Release|iPhoneSimulator.Build.0 = Release|Any CPU
+		{9C41561E-BC85-4570-9A3F-C828F0A0E249}.Debug|iPhone.ActiveCfg = Debug|Any CPU
+		{9C41561E-BC85-4570-9A3F-C828F0A0E249}.Debug|iPhone.Build.0 = Debug|Any CPU
+		{9C41561E-BC85-4570-9A3F-C828F0A0E249}.Release|iPhone.ActiveCfg = Release|Any CPU
+		{9C41561E-BC85-4570-9A3F-C828F0A0E249}.Release|iPhone.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{0CBAFFDD-3FA8-41BB-836E-1C3ADCF12675} = {69F38075-E5F6-471D-B25A-2E7C11087354}
@@ -92,5 +106,9 @@ Global
 		{40F408FF-A636-4B94-AC71-6468BDA6C13B} = {0CBAFFDD-3FA8-41BB-836E-1C3ADCF12675}
 		{E12ED9A0-018E-4A55-9524-1E246BBFDA44} = {0CBAFFDD-3FA8-41BB-836E-1C3ADCF12675}
 		{05AFF7E8-7A96-4F83-B474-C830FF5FADF3} = {0CBAFFDD-3FA8-41BB-836E-1C3ADCF12675}
+	EndGlobalSection
+	GlobalSection(MonoDevelopProperties) = preSolution
+		Policies = $0
+		$0.StandardHeader = $1
 	EndGlobalSection
 EndGlobal
