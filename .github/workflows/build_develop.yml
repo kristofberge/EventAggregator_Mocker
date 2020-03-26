@@ -23,3 +23,5 @@ jobs:
       run: dotnet restore
     - name: Build
       run: dotnet build EventAggregatorMocker/EventAggregatorMocker.csproj --configuration Release --no-restore --verbosity normal
+    - name: Test
+      run: dotnet test EventAggregatorMocker.Tests/EventAggregatorMocker.Tests.csproj --no-restore --verbosity normal

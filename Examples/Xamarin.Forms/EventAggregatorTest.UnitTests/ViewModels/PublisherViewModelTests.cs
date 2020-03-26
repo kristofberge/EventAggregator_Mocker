@@ -17,7 +17,6 @@ namespace EventAggregatorTest.UnitTests.ViewModels
         public PublisherViewModelTests()
         {
             _eventAggregator = new Mock<IEventAggregator>();
-            _mockedEvent = new Mock<MessageSubmittedEvent>();
 
             _mockedEvent = _eventAggregator.RegisterNewMockedEvent<MessageSubmittedEvent, MessageContent>();
 

@@ -7,6 +7,8 @@
     <Authors>Kristof Bergé</Authors>
     <Description>Easy extension methods to write unit tests with Prism's EventAggregator.</Description>
     <PackageId>EventAggregator_Mocker</PackageId>
+    <ReleaseVersion>0.2</ReleaseVersion>
+    <SynchReleaseVersion>false</SynchReleaseVersion>
   </PropertyGroup>
 
   <ItemGroup>
