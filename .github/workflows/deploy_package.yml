@@ -1,4 +1,4 @@
-name: Build master
+name: Build and deploy
 
 on:
   push:
@@ -25,3 +25,4 @@ jobs:
       with:
         PROJECT_FILE_PATH: EventAggregatorMocker/EventAggregatorMocker.csproj
         VERSION_REGEX: <ReleaseVersion>(.*)<\/ReleaseVersion>
+        NUGET_KEY: NUGET_API_KEY
