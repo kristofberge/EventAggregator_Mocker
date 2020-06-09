@@ -9,6 +9,8 @@
     <PackageId>EventAggregator_Mocker</PackageId>
     <ReleaseVersion>0.3</ReleaseVersion>
     <SynchReleaseVersion>false</SynchReleaseVersion>
+    <Version>1.0</Version>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
   </PropertyGroup>
 
   <ItemGroup>
