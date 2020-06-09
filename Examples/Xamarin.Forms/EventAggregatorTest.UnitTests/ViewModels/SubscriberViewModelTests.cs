@@ -19,7 +19,9 @@ namespace EventAggregatorTest.UnitTests.ViewModels
         {
             _eventAggregator = new Mock<IEventAggregator>();
 
-            _eventAggregator.RegisterNewMockedEvent<MessageSubmittedEvent, MessageContent>(action => _onMessageSubmitted = action);
+            _eventAggregator
+                .RegisterNewMockedEvent<MessageSubmittedEvent, MessageContent>()
+                .SetSubscribeCallback<MessageSubmittedEvent, MessageContent>(action => _onMessageSubmitted = action);
 
             _viewModel = new SubscriberViewModel(_eventAggregator.Object);
         }
