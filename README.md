@@ -23,7 +23,7 @@ With paramater:
 ```
 Mock<MyParamEvent> mockedParamEvent = eventAggregatorMock.RegisterNewMockedEvent<MyParamEvent, MyParam>();
 ...
-mockedParamEvent.Verify(evt => evt.Publish(It.IsAny<MyParam>), Times.Once);
+mockedParamEvent.Verify(evt => evt.Publish(It.IsAny<MyParam>()), Times.Once);
 ```
 
 ### Verifying the event handling behavior
