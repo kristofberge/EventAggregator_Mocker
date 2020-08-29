@@ -27,14 +27,14 @@ mockedParamEvent.Verify(evt => evt.Publish(It.IsAny<MyParam>()), Times.Once);
 ```
 
 ### Verifying the event handling behavior
-We need to get a reference to the event handler, so we can call it directly and verify its behavior. We do this by storing this reference in a variable of type `Action` or `Action<T>`.
-The 2 extension methods I used above return an object of type `Mock<TEvent>`. On this object, you can call another extension method `SetSubscribeCallback<TEvent>(Action<Action> onSubscribe)`. This method takes an `Action` as a paramater that in its turn will recieve a reference to the event handler that's passed in the `Subscribe` method of the actual code you're testing. 
+We need to get a reference to the event handler, so we can invoke it manually and verify its behavior. We do this by storing this reference in a variable of type `Action` or `Action<T>`.
+The 2 extension methods I used above return an object of type `Mock<TEvent>`. On this object, we call another extension method `SetSubscribeCallback<TEvent>(Action<Action> onSubscribe)`. This method takes an `Action` as a paramater that will recieve a reference to the event handler that will be passed in the `Subscribe` method of the actual code we're testing. 
 So at this point we can store this reference in a variable and invoke it in our unit test. This works even if the method passed is private.
 If this sounds a bit complicated, here's an example:
 
 Without parameter:
 ```
-Action onEventPublishedAction;
+Action onEventPublishedAction; // This will keep a reference of the event handler that our production code passes into Subscribe().
 // During setup
 eventAggregatorMock
     .RegisterNewMockedEvent<MyEvent>()
@@ -46,7 +46,7 @@ onEventPublishedAction.Invoke();
 // Verify that the code has run correctly
 ```
 
-Without parameter:
+With parameter:
 ```
 Action<MyParam> onEventPublishedAction;
 // During setup
@@ -57,14 +57,14 @@ eventAggregatorMock
 // In the unit test
 onEventPublishedAction.Invoke(new MyParam());
 
-// Verify that the code has run correctly
+// Perform assertions
 ```
 
 To see it in action, check out this working [example](https://github.com/kristofberge/EventAggregator_Mocker/tree/master/Examples/Xamarin.Forms/EventAggregatorTest.UnitTests/ViewModels)  
 
 
 ## Optional parameters
-Since version 1.0 EventAggregator_Mocker supports all optional parameters of `IEventAggragator.Subscriber()`.
+Since version 1.0 EventAggregator_Mocker supports all optional parameters of `IEventAggragator.Subscribe()`.
 
 For example:
 ```
@@ -72,7 +72,7 @@ eventAggregatorMock
     .RegisterNewMockedEvent<MyEvent>()
     .SetSubscribeCallback(
         action => receivedAction = action,
-        ThreadOption.BackgroundThread,
-        true
+        ThreadOption.BackgroundThread,  // ThreadOption
+        true  // keepSubscriberReferenceAlive
     );
 ```
