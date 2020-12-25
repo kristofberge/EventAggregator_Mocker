@@ -3,18 +3,28 @@
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
     <PackOnBuild>true</PackOnBuild>
-    <PackageVersion>0.4</PackageVersion>
+    <PackageVersion>1.0.1</PackageVersion>
     <Authors>Kristof Bergé</Authors>
     <Description>Easy extension methods for mocking Prism.EventAggregator</Description>
     <PackageId>EventAggregator_Mocker</PackageId>
-    <ReleaseVersion>0.4</ReleaseVersion>
+    <ReleaseVersion>1.0.1</ReleaseVersion>
     <SynchReleaseVersion>false</SynchReleaseVersion>
-    <Version>1.0</Version>
+    <Version>1.0.1</Version>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <PackageProjectUrl>https://github.com/kristofberge/EventAggregator_Mocker</PackageProjectUrl>
+    <Owners>Kristof Bergé</Owners>
   </PropertyGroup>
 
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType></DebugType>
+  </PropertyGroup>
   <ItemGroup>
     <PackageReference Include="Moq" Version="4.7.49" />
     <PackageReference Include="Prism.Core" Version="7.0.0.362" />
   </ItemGroup>
+    
+  <PropertyGroup>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+  </PropertyGroup>
+  
 </Project>
