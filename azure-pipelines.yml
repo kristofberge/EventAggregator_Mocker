@@ -32,6 +32,7 @@ steps:
   displayName: 'Run unit tests - $(buildConfiguration)'
   inputs:
     command: 'test'
+    testRunTitle: 'All unit tests'
     arguments: '--no-build --configuration $(buildConfiguration)'
     publishTestResults: true
     projects: '**/EventAggregatorMocker.Tests.csproj'
