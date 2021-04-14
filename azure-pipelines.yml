@@ -36,3 +36,8 @@ steps:
     arguments: '--no-build --configuration $(buildConfiguration)'
     publishTestResults: true
     projects: '**/EventAggregatorMocker.Tests.csproj'
+
+- task: NuGetCommand@2
+  inputs:
+    command: pack
+    packagesToPack: '**/EventAggregatorMocker.csproj'
