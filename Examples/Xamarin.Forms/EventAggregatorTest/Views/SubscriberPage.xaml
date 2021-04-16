@@ -1,33 +1,90 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
+﻿<?xml version="1.0" encoding="UTF-8" ?>
 <ContentPage
+    x:Class="EventAggregatorTest.Views.SubscriberPage"
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
     xmlns:mvvm="clr-namespace:Prism.Mvvm;assembly=Prism.Forms"
+    xmlns:vm="clr-namespace:EventAggregatorTest.Viewmodels"
+    ios:Page.UseSafeArea="True"
     mvvm:ViewModelLocator.AutowireViewModel="True"
-    x:Class="EventAggregatorTest.Views.SubscriberPage">
+    x:DataType="vm:SubscriberViewModel">
     <Grid Padding="20">
         <Grid.RowDefinitions>
-            <RowDefinition Height="40"/>
-            <RowDefinition Height="40"/>
+            <RowDefinition Height="40" />
+            <RowDefinition Height="40" />
+            <RowDefinition Height="40" />
+            <RowDefinition Height="20" />
+            <RowDefinition Height="60" />
+            <RowDefinition Height="40" />
+            <RowDefinition Height="40" />
+            <RowDefinition Height="40" />
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="*"/>
-            <ColumnDefinition Width="3*"/>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="3*" />
         </Grid.ColumnDefinitions>
 
         <Label
-            Text="Message:"
+            Grid.Row="0"
+            Grid.Column="0"
+            Grid.ColumnSpan="2"
             FontAttributes="Bold"
-            Grid.Row="0" Grid.Column="0"/>
+            FontSize="24"
+            Text="All messages" />
+
         <Label
-            Text="{Binding Message}"
-            Grid.Row="0" Grid.Column="1"/>
-        <Label
-            Text="Number:"
+            Grid.Row="1"
+            Grid.Column="0"
             FontAttributes="Bold"
-            Grid.Row="1" Grid.Column="0"/>
+            Text="Message:" />
         <Label
-            Text="{Binding Number}"
-            Grid.Row="1" Grid.Column="1"/>
+            Grid.Row="1"
+            Grid.Column="1"
+            Text="{Binding Message}" />
+        <Label
+            Grid.Row="2"
+            Grid.Column="0"
+            FontAttributes="Bold"
+            Text="Number:" />
+        <Label
+            Grid.Row="2"
+            Grid.Column="1"
+            Text="{Binding Number}" />
+
+        <Label
+            Grid.Row="4"
+            Grid.Column="0"
+            Grid.ColumnSpan="2"
+            FontAttributes="Bold"
+            FontSize="24"
+            Text="Filtered messages"
+            VerticalOptions="End" />
+
+        <Label
+            Grid.Row="5"
+            Grid.Column="0"
+            Grid.ColumnSpan="2"
+            Text="(only messages with number 5 or higher)" />
+
+        <Label
+            Grid.Row="6"
+            Grid.Column="0"
+            FontAttributes="Bold"
+            Text="Message:" />
+        <Label
+            Grid.Row="6"
+            Grid.Column="1"
+            Text="{Binding MessageFiltered}" />
+        <Label
+            Grid.Row="7"
+            Grid.Column="0"
+            FontAttributes="Bold"
+            Text="Number:" />
+        <Label
+            Grid.Row="7"
+            Grid.Column="1"
+            Text="{Binding NumberFiltered}" />
+
     </Grid>
 </ContentPage>

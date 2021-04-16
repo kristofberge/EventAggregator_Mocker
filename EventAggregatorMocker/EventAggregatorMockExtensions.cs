@@ -41,15 +41,14 @@ namespace EventAggregatorMocker
             this Mock<TEvent> @event, 
             Action<Action<TResult>> onSubscribe,
             ThreadOption threadOption = default,
-            bool keepSubcriberAlive = false,
-            Predicate<TResult> filter = default) where TEvent : PubSubEvent<TResult>
+            bool keepSubcriberAlive = false) where TEvent : PubSubEvent<TResult>
         {
             @event.Setup(x =>
                 x.Subscribe(
                     It.IsAny<Action<TResult>>(),
                     threadOption,
                     keepSubcriberAlive,
-                    filter))
+                    It.IsAny<Predicate<TResult>>()))
                 .Callback<Action<TResult>, ThreadOption, bool, Predicate<TResult>>(
                     (action, _, __, ___) => onSubscribe(action));
         }

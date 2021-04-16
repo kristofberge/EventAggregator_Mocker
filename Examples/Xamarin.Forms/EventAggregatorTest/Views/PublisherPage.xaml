@@ -1,63 +1,76 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
+﻿<?xml version="1.0" encoding="UTF-8" ?>
 <ContentPage
+    x:Class="EventAggregatorTest.Views.PublisherPage"
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
     xmlns:mvvm="clr-namespace:Prism.Mvvm;assembly=Prism.Forms"
+    xmlns:vm="clr-namespace:EventAggregatorTest.Viewmodels"
+    ios:Page.UseSafeArea="True"
     mvvm:ViewModelLocator.AutowireViewModel="True"
-    x:Class="EventAggregatorTest.Views.PublisherPage">
+    x:DataType="vm:PublisherViewModel">
     <Grid RowSpacing="20">
         <Grid.RowDefinitions>
-            <RowDefinition Height="60"/>
-            <RowDefinition Height="80"/>
-            <RowDefinition Height="80"/>
-            <RowDefinition Height="140"/>
+            <RowDefinition Height="60" />
+            <RowDefinition Height="80" />
+            <RowDefinition Height="80" />
+            <RowDefinition Height="140" />
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="*"/>
-            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
         </Grid.ColumnDefinitions>
 
         <Entry
-            Placeholder="Type a message"
-            Text="{Binding Text}"
+            Grid.Row="0"
+            Grid.Column="0"
+            Grid.ColumnSpan="2"
             Margin="20,0"
             HorizontalOptions="FillAndExpand"
-            Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2"/>
+            Placeholder="Type a message"
+            Text="{Binding Text}" />
 
         <Label
-            Text="{Binding Number}"
-            TextColor="Black"
-            Padding="60, 0, 0, 0"
+            Grid.Row="1"
+            Grid.RowSpan="2"
+            Grid.Column="0"
+            Padding="60,0,0,0"
             FontSize="80"
             HorizontalOptions="Center"
-            VerticalOptions="Center"
-            Grid.Row="1" Grid.Column="0" Grid.RowSpan="2"/>
-        <Button
-            Text="+"
-            TextColor="Red"
-            FontSize="24"
-            BackgroundColor="Aquamarine"
-            Command="{Binding AddCommand}"
-            HorizontalOptions="Start"
-            VerticalOptions="FillAndExpand"
-            Grid.Row="1" Grid.Column="1"/>
-        <Button
-            Text="-"
-            TextColor="Red"
-            FontSize="24"
-            BackgroundColor="AntiqueWhite"
-            Command="{Binding SubtractCommand}"
-            HorizontalOptions="Start"
-            VerticalOptions="FillAndExpand"
-            Grid.Row="2" Grid.Column="1"/>
+            Text="{Binding Number}"
+            TextColor="Black"
+            VerticalOptions="Center" />
 
         <Button
-            BackgroundColor="Aqua"
-            Text="Publish event"
+            Grid.Row="1"
+            Grid.Column="1"
+            BackgroundColor="Aquamarine"
+            Command="{Binding AddCommand}"
+            FontSize="24"
+            HorizontalOptions="Start"
+            Text="+"
+            TextColor="Red"
+            VerticalOptions="FillAndExpand" />
+        <Button
+            Grid.Row="2"
+            Grid.Column="1"
+            BackgroundColor="AntiqueWhite"
+            Command="{Binding SubtractCommand}"
+            FontSize="24"
+            HorizontalOptions="Start"
+            Text="-"
+            TextColor="Red"
+            VerticalOptions="FillAndExpand" />
+
+        <Button
+            Grid.Row="3"
+            Grid.Column="0"
+            Grid.ColumnSpan="2"
             Margin="80,10,80,70"
+            BackgroundColor="Aqua"
             Command="{Binding PublishCommand}"
-            VerticalOptions="FillAndExpand"
             HorizontalOptions="FillAndExpand"
-            Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="2"/>
+            Text="Publish event"
+            VerticalOptions="FillAndExpand" />
     </Grid>
 </ContentPage>

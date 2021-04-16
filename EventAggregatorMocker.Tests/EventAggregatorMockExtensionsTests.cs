@@ -115,11 +115,11 @@ namespace EventAggregatorMocker.Tests
 
             _eventAggregator
                 .RegisterNewMockedEvent<DummyParamEvent, object>()
-                .SetSubscribeCallback(action => receivedAction = action, threadOption, keepSubcriberAlive, filter);
+                .SetSubscribeCallback<DummyParamEvent, object>(action => receivedAction = action, threadOption, keepSubcriberAlive);
 
             _eventAggregator.Object
                 .GetEvent<DummyParamEvent>()
-                .Subscribe(expectedAction, threadOption, keepSubcriberAlive, filter);
+                .Subscribe(expectedAction, threadOption, keepSubcriberAlive, _ => true);
 
             Assert.Equal(expectedAction, receivedAction);
         }

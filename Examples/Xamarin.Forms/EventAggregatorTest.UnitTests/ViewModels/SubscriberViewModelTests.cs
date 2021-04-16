@@ -43,5 +43,23 @@ namespace EventAggregatorTest.UnitTests.ViewModels
             Assert.Equal("Expected text", _viewModel.Message);
             Assert.Equal(4, _viewModel.Number);
         }
+
+        [Fact]
+        public void FilteredFieldsUpdatedAfterValidMessageReceived()
+        {
+            //Setup
+            var message = new MessageContent
+            {
+                Text = "Expected text",
+                Number = 5
+            };
+
+            //Act
+            _onMessageSubmitted.Invoke(message);
+
+            //Verify
+            Assert.Equal("Expected text", _viewModel.MessageFiltered);
+            Assert.Equal(5, _viewModel.NumberFiltered);
+        }
     }
 }
