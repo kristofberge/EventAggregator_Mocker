@@ -4,7 +4,7 @@
 # https://docs.microsoft.com/azure/devops/pipelines/apps/aspnet/build-aspnet-4
 
 trigger:
-- develop
+- master
 
 pool:
   vmImage: 'windows-latest'
@@ -13,12 +13,17 @@ variables:
   solution: '**/*.sln'
   buildPlatform: 'Any CPU'
   buildConfiguration: 'Release'
+  Major: '1'
+  Minor: '0'
+  Patch: '0'
 
 steps:
 - task: NuGetToolInstaller@1
+
 - task: NuGetCommand@2
   inputs:
     restoreSolution: '$(solution)'
+
 - task: VSBuild@1
   inputs:
     solution: '$(solution)'
@@ -30,13 +35,25 @@ steps:
   displayName: 'Run unit tests - $(buildConfiguration)'
   inputs:
     command: 'test'
+    testRunTitle: 'All unit tests'
     arguments: '--no-build --configuration $(buildConfiguration)'
     publishTestResults: true
     projects: '**/EventAggregatorMocker.Tests.csproj'
 
+- task: NuGetCommand@2
+  displayName: 'Create NuGet package'
+  inputs:
+    command: pack
+    versioningScheme: byPrereleaseNumber
+    majorVersion: '$(Major)'
+    minorVersion: '$(Minor)'
+    patchVersion: '$(Patch)'
+    packagesToPack: '**/EventAggregatorMocker.csproj'
+
 - task: DotNetCoreCLI@2
+  displayName: "Publish"
   inputs:
     command: 'push'
     packagesToPush: '$(Build.ArtifactStagingDirectory)/*.nupkg'
     nuGetFeedType: 'internal'
-    publishVstsFeed: '35aef337-5cbc-46dc-9f52-2e4a1192bf43/7fef7445-b774-46fb-8af7-e86800eb2a7a'
+    publishVstsFeed: '35aef337-5cbc-46dc-9f52-2e4a1192bf43/c8adaccb-86b1-4ee0-9075-5da3817f2ba7'
